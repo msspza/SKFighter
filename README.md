@@ -1,2 +1,2 @@
 # SKFighter
-Juego de peleas de SexyKIDS
+Juego de peleas utilizando el motor de videojuegos 'Godot'
