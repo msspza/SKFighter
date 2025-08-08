@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bprl375uydila"]
+
+[ext_resource type="Texture2D" uid="uid://bis731dj1won8" path="res://personajes/pj_sapo/sapo_pj_A.png" id="1_ji1iq"]
+[ext_resource type="Texture2D" uid="uid://b8qggq1rydc22" path="res://personajes/pj_sapo/sapo_pj_B.png" id="2_h0hnq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cpak"]
+radius = 73.0
+height = 226.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ji1iq"]
+radius = 62.0
+height = 234.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cpak"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_ji1iq")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_h0hnq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SapoScene" type="CharacterBody2D"]
+
+[node name="HITBOX" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
+position = Vector2(-6, 15)
+shape = SubResource("CapsuleShape2D_6cpak")
+
+[node name="CollisionSapo" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 13)
+shape = SubResource("CapsuleShape2D_ji1iq")
+
+[node name="SKIN" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6cpak")
+autoplay = "default"
+frame_progress = 0.775873
