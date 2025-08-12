@@ -1,18 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://bprl375uydila"]
+[gd_scene load_steps=13 format=3 uid="uid://bprl375uydila"]
 
-[ext_resource type="Texture2D" uid="uid://bis731dj1won8" path="res://personajes/pj_sapo/sapo_pj_A.png" id="1_ji1iq"]
-[ext_resource type="Texture2D" uid="uid://b8qggq1rydc22" path="res://personajes/pj_sapo/sapo_pj_B.png" id="2_h0hnq"]
+[ext_resource type="Texture2D" uid="uid://b5skc7wy1dpqh" path="res://personajes/pj_sapo/sapo_pj_caida.png" id="1_ja61r"]
+[ext_resource type="Texture2D" uid="uid://b4lqsh0ra0a6n" path="res://personajes/pj_sapo/sapo_pj_A.png" id="1_ji1iq"]
+[ext_resource type="Texture2D" uid="uid://c6pckk0xk5l7s" path="res://personajes/pj_sapo/sapo_pj_caminar_A.png" id="2_34x8y"]
+[ext_resource type="Texture2D" uid="uid://cls70meh1vtm5" path="res://personajes/pj_sapo/sapo_pj_B.png" id="2_h0hnq"]
+[ext_resource type="Texture2D" uid="uid://c46jgxbv7u2x0" path="res://personajes/pj_sapo/sapo_pj_caminar_B.png" id="3_x2ep2"]
+[ext_resource type="Texture2D" uid="uid://bqpkfdch5jql3" path="res://personajes/pj_sapo/sapo_pj_puÃ±etazo_A.png" id="5_6b7ge"]
+[ext_resource type="Texture2D" uid="uid://cvai7347uvb78" path="res://personajes/pj_sapo/sapo_pj_salto.png" id="6_6b7ge"]
+[ext_resource type="Texture2D" uid="uid://bcp8ot8hhrgfk" path="res://personajes/pj_sapo/sapo_pj_puÃ±etazo_B.png" id="6_rylv6"]
+[ext_resource type="Texture2D" uid="uid://c5nlvn0im6hhx" path="res://personajes/pj_sapo/sapo_pj_puÃ±etazo_C.png" id="7_cibkf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cpak"]
-radius = 73.0
-height = 226.0
+radius = 45.9531
+height = 129.275
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ji1iq"]
-radius = 62.0
-height = 234.0
+radius = 26.0
+height = 81.4815
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6cpak"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ly28b"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_34x8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x2ep2")
+}],
+"loop": false,
+"name": &"caminar",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 2.0,
 "texture": ExtResource("1_ji1iq")
@@ -23,21 +41,56 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ji1iq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6b7ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rylv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cibkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_ji1iq")
+}],
+"loop": false,
+"name": &"pegar",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("6_6b7ge")
+}, {
+"duration": 3.0,
+"texture": ExtResource("1_ja61r")
+}],
+"loop": false,
+"name": &"salto",
+"speed": 5.0
 }]
 
 [node name="SapoScene" type="CharacterBody2D"]
 
 [node name="HITBOX" type="Area2D" parent="."]
+position = Vector2(-1.19209e-07, -5)
+scale = Vector2(0.609318, 0.696189)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
-position = Vector2(-6, 15)
+position = Vector2(-3.28236, 11.4911)
 shape = SubResource("CapsuleShape2D_6cpak")
 
 [node name="CollisionSapo" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 13)
+position = Vector2(-2, 2)
+scale = Vector2(1, 1.08)
 shape = SubResource("CapsuleShape2D_ji1iq")
 
 [node name="SKIN" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_6cpak")
-autoplay = "default"
-frame_progress = 0.775873
+sprite_frames = SubResource("SpriteFrames_ly28b")
+animation = &"pegar"
+frame = 4
+frame_progress = 1.0

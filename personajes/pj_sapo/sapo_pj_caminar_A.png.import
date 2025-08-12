@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4lqsh0ra0a6n"
-path="res://.godot/imported/sapo_pj_A.png-3639ae2f5d82423d28411dac4c955205.ctex"
+uid="uid://c6pckk0xk5l7s"
+path="res://.godot/imported/sapo_pj_caminar_A.png-473884aaa18a0ee759252d651e34045f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/pj_sapo/sapo_pj_A.png"
-dest_files=["res://.godot/imported/sapo_pj_A.png-3639ae2f5d82423d28411dac4c955205.ctex"]
+source_file="res://personajes/pj_sapo/sapo_pj_caminar_A.png"
+dest_files=["res://.godot/imported/sapo_pj_caminar_A.png-473884aaa18a0ee759252d651e34045f.ctex"]
 
 [params]
 
