@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bhecoof1l2m1f"]
+
+[node name="WaryScene" type="CharacterBody2D"]

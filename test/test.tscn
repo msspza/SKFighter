@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://k5gb45rgpj1f"]
+[gd_scene load_steps=4 format=3 uid="uid://k5gb45rgpj1f"]
 
 [ext_resource type="Texture2D" uid="uid://doqbnjkwmewm3" path="res://assets/Pirate Bomb/Sprites/8-Tile-Sets/Variations/4.png" id="1_syuel"]
 [ext_resource type="PackedScene" uid="uid://bprl375uydila" path="res://personajes/pj_sapo/sapo_scene.tscn" id="2_8a8pi"]
-[ext_resource type="Script" uid="uid://crr4saurd3lmr" path="res://personajes/pj_mov.gd" id="3_65205"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8a8pi"]
 size = Vector2(179, 17)
@@ -26,4 +25,3 @@ shape = SubResource("RectangleShape2D_8a8pi")
 position = Vector2(3, -51)
 scale = Vector2(1.04, 1)
 collision_layer = 2
-script = ExtResource("3_65205")
