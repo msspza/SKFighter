@@ -93,9 +93,7 @@ shape = SubResource("CapsuleShape2D_ji1iq")
 
 [node name="SKIN" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ly28b")
-animation = &"pegar"
-frame = 4
-frame_progress = 1.0
+animation = &"salto"
 
 [node name="TimerIdle" type="Timer" parent="."]
 

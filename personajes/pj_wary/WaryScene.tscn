@@ -1,3 +1,96 @@
-[gd_scene format=3 uid="uid://bhecoof1l2m1f"]
+[gd_scene load_steps=14 format=3 uid="uid://bhecoof1l2m1f"]
+
+[ext_resource type="Texture2D" uid="uid://knhyr7mppdae" path="res://personajes/pj_wary/wary_pj_A.png" id="1_2f4ag"]
+[ext_resource type="Script" uid="uid://crr4saurd3lmr" path="res://personajes/pj_mov.gd" id="1_44bgs"]
+[ext_resource type="Texture2D" uid="uid://boxrcwl8c7kp3" path="res://personajes/pj_wary/wary_pj_caminar_A.png" id="1_eg2tb"]
+[ext_resource type="Texture2D" uid="uid://bfei0ces6ravv" path="res://personajes/pj_wary/wary_pj_caminar_B.png" id="2_0vbll"]
+[ext_resource type="Texture2D" uid="uid://c7pa2xdkwtlwc" path="res://personajes/pj_wary/wary_pj_B.png" id="2_n81kk"]
+[ext_resource type="Texture2D" uid="uid://c80rxyr3jc0mv" path="res://personajes/pj_wary/wary_pj_salto.png" id="5_d13x0"]
+[ext_resource type="Texture2D" uid="uid://djlj403kfgv1" path="res://personajes/pj_wary/wary_pj_punietazo_A.png" id="5_lq5o7"]
+[ext_resource type="Texture2D" uid="uid://bjx81stu1xots" path="res://personajes/pj_wary/wary_pj_punietazo_B.png" id="6_44bgs"]
+[ext_resource type="Texture2D" uid="uid://1olem1dfa0f" path="res://personajes/pj_wary/wary_pj_caida.png" id="6_lq5o7"]
+[ext_resource type="Texture2D" uid="uid://yh3h4flrq7t7" path="res://personajes/pj_wary/wary_pj_punietazo_C.png" id="7_q0rqg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lq5o7"]
+radius = 28.0
+height = 92.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_44bgs"]
+radius = 25.0
+height = 90.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tv1vj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eg2tb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0vbll")
+}],
+"loop": false,
+"name": &"caminar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_2f4ag")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_n81kk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2f4ag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lq5o7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_44bgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q0rqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_2f4ag")
+}],
+"loop": false,
+"name": &"pegar",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("5_d13x0")
+}, {
+"duration": 3.0,
+"texture": ExtResource("6_lq5o7")
+}],
+"loop": false,
+"name": &"salto",
+"speed": 5.0
+}]
 
 [node name="WaryScene" type="CharacterBody2D"]
+script = ExtResource("1_44bgs")
+
+[node name="HITBOX" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
+position = Vector2(-2, 2)
+shape = SubResource("CapsuleShape2D_lq5o7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 3)
+shape = SubResource("CapsuleShape2D_44bgs")
+
+[node name="SKIN" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tv1vj")
+
+[node name="TimerIdle" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerIdle" to="." method="_on_timer_idle_timeout"]
