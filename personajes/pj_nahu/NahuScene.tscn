@@ -1,3 +1,96 @@
-[gd_scene format=3 uid="uid://g1god7jraoan"]
+[gd_scene load_steps=14 format=3 uid="uid://g1god7jraoan"]
+
+[ext_resource type="Script" uid="uid://crr4saurd3lmr" path="res://personajes/pj_mov.gd" id="1_ga0lj"]
+[ext_resource type="Texture2D" uid="uid://c0s44dp13cpao" path="res://personajes/pj_nahu/nahu_pj_caminar_A.png" id="2_1j8rn"]
+[ext_resource type="Texture2D" uid="uid://c51xpvlbj0rf" path="res://personajes/pj_nahu/nahu_pj_caminar_B.png" id="3_s8n2p"]
+[ext_resource type="Texture2D" uid="uid://ct8nanfrtgj7j" path="res://personajes/pj_nahu/nahu_pj_A.png" id="4_6f58t"]
+[ext_resource type="Texture2D" uid="uid://diyt0rrvqwmrj" path="res://personajes/pj_nahu/nahu_pj_B.png" id="5_n7gg7"]
+[ext_resource type="Texture2D" uid="uid://c6flt8amso0xm" path="res://personajes/pj_nahu/nahu_pj_punietazo_A.png" id="6_cplc8"]
+[ext_resource type="Texture2D" uid="uid://bcl3ujyhjscjb" path="res://personajes/pj_nahu/nahu_pj_punietazo_B.png" id="7_m8s6y"]
+[ext_resource type="Texture2D" uid="uid://c88h45t25c2x8" path="res://personajes/pj_nahu/nahu_pj_punietazo_C.png" id="8_fftq7"]
+[ext_resource type="Texture2D" uid="uid://blpl3kq7275j8" path="res://personajes/pj_nahu/nahu_pj_salto.png" id="9_5te16"]
+[ext_resource type="Texture2D" uid="uid://cn557w5n4m40d" path="res://personajes/pj_nahu/nahu_pj_caida.png" id="10_8717a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ga0lj"]
+radius = 28.0
+height = 94.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1j8rn"]
+radius = 26.0
+height = 90.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_482kd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1j8rn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_s8n2p")
+}],
+"loop": false,
+"name": &"caminar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("4_6f58t")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_n7gg7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6f58t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cplc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_m8s6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_fftq7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6f58t")
+}],
+"loop": false,
+"name": &"pegar",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("9_5te16")
+}, {
+"duration": 3.0,
+"texture": ExtResource("10_8717a")
+}],
+"loop": false,
+"name": &"salto",
+"speed": 5.0
+}]
 
 [node name="NahuScene" type="CharacterBody2D"]
+script = ExtResource("1_ga0lj")
+
+[node name="HITBOX" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
+position = Vector2(-1, 2)
+shape = SubResource("CapsuleShape2D_ga0lj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3)
+shape = SubResource("CapsuleShape2D_1j8rn")
+
+[node name="SKIN" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_482kd")
+
+[node name="TimerIdle" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerIdle" to="." method="_on_timer_idle_timeout"]
