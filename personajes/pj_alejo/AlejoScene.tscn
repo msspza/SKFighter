@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://b5i7faqkitt8b"]
+
+[ext_resource type="Texture2D" uid="uid://ckbjd5tgfc3a7" path="res://personajes/pj_alejo/alejo_pj_A.png" id="1_5l503"]
+[ext_resource type="Script" uid="uid://crr4saurd3lmr" path="res://personajes/pj_mov.gd" id="1_23ttt"]
+[ext_resource type="Texture2D" uid="uid://dhu37vrj7cq6h" path="res://personajes/pj_alejo/alejo_pj_caminar_A.png" id="1_ff21l"]
+[ext_resource type="Texture2D" uid="uid://dqc6kiw47ngp0" path="res://personajes/pj_alejo/alejo_pj_B.png" id="2_c1bbl"]
+[ext_resource type="Texture2D" uid="uid://53yqm22256li" path="res://personajes/pj_alejo/alejo_pj_caminar_B.png" id="2_mvhhc"]
+[ext_resource type="Texture2D" uid="uid://duxevnjpuj0er" path="res://personajes/pj_alejo/alejo_punietazo_A.png" id="5_c4kj8"]
+[ext_resource type="Texture2D" uid="uid://c62weio0okatf" path="res://personajes/pj_alejo/alejo_pj_salto.png" id="5_p615b"]
+[ext_resource type="Texture2D" uid="uid://cddat5gi6j8jp" path="res://personajes/pj_alejo/alejo_punietazo_B.png" id="6_23ttt"]
+[ext_resource type="Texture2D" uid="uid://dyndibxu5w48y" path="res://personajes/pj_alejo/alejo_pj_caida.png" id="6_c4kj8"]
+[ext_resource type="Texture2D" uid="uid://dhjct8qfwcdjg" path="res://personajes/pj_alejo/alejo_punietazo_C.png" id="7_rt3ek"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4kj8"]
+radius = 27.0
+height = 88.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_23ttt"]
+radius = 25.0
+height = 88.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txsex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ff21l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mvhhc")
+}],
+"loop": false,
+"name": &"caminar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_5l503")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_c1bbl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5l503")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c4kj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_23ttt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rt3ek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_5l503")
+}],
+"loop": true,
+"name": &"pegar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("5_p615b")
+}, {
+"duration": 3.0,
+"texture": ExtResource("6_c4kj8")
+}],
+"loop": false,
+"name": &"salto",
+"speed": 5.0
+}]
+
+[node name="AlejoScene" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_23ttt")
+
+[node name="HITBOX" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
+position = Vector2(-1, 5)
+shape = SubResource("CapsuleShape2D_c4kj8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6)
+shape = SubResource("CapsuleShape2D_23ttt")
+
+[node name="SKIN" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_txsex")
+animation = &"pegar"
+
+[node name="TimerIdle" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerIdle" to="." method="_on_timer_idle_timeout"]

@@ -76,6 +76,7 @@ animations = [{
 }]
 
 [node name="SapoScene" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_rylv6")
 
 [node name="HITBOX" type="Area2D" parent="."]
@@ -93,7 +94,7 @@ shape = SubResource("CapsuleShape2D_ji1iq")
 
 [node name="SKIN" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ly28b")
-animation = &"salto"
+animation = &"pegar"
 
 [node name="TimerIdle" type="Timer" parent="."]
 
