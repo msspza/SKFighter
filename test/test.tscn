@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://k5gb45rgpj1f"]
 
 [ext_resource type="Texture2D" uid="uid://doqbnjkwmewm3" path="res://assets/Pirate Bomb/Sprites/8-Tile-Sets/Variations/4.png" id="1_syuel"]
-[ext_resource type="PackedScene" uid="uid://btivaji7hjg6n" path="res://personajes/pj_puyol/PuyolScene.tscn" id="2_8a8pi"]
+[ext_resource type="PackedScene" uid="uid://bprl375uydila" path="res://personajes/pj_sapo/sapo_scene.tscn" id="2_8a8pi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8a8pi"]
 size = Vector2(179, 17)
@@ -21,5 +21,5 @@ position = Vector2(-1, 0)
 scale = Vector2(2.32, 1)
 shape = SubResource("RectangleShape2D_8a8pi")
 
-[node name="PuyolScene" parent="." instance=ExtResource("2_8a8pi")]
-position = Vector2(4, -55)
+[node name="SapoScene" parent="." instance=ExtResource("2_8a8pi")]
+position = Vector2(3, -56)

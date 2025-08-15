@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqpkfdch5jql3"
-path="res://.godot/imported/sapo_pj_puÃ±etazo_A.png-d3aea83eccdae20543d82cf2461a744b.ctex"
+uid="uid://bcaxtdq47ad81"
+path="res://.godot/imported/sapo_pj_punietazo_B.png-f5d89fba06fa59753047ab8f1767f0df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://personajes/pj_sapo/sapo_pj_puÃ±etazo_A.png"
-dest_files=["res://.godot/imported/sapo_pj_puÃ±etazo_A.png-d3aea83eccdae20543d82cf2461a744b.ctex"]
+source_file="res://personajes/pj_sapo/sapo_pj_punietazo_B.png"
+dest_files=["res://.godot/imported/sapo_pj_punietazo_B.png-f5d89fba06fa59753047ab8f1767f0df.ctex"]
 
 [params]
 

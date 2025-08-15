@@ -1,15 +1,15 @@
 [gd_scene load_steps=14 format=3 uid="uid://bprl375uydila"]
 
-[ext_resource type="Texture2D" uid="uid://b5skc7wy1dpqh" path="res://personajes/pj_sapo/sapo_pj_caida.png" id="1_ja61r"]
-[ext_resource type="Texture2D" uid="uid://b4lqsh0ra0a6n" path="res://personajes/pj_sapo/sapo_pj_A.png" id="1_ji1iq"]
+[ext_resource type="Texture2D" uid="uid://bir6k2bdr2y5g" path="res://personajes/pj_sapo/sapo_pj_caida.png" id="1_ja61r"]
+[ext_resource type="Texture2D" uid="uid://d221l6lqnqcqx" path="res://personajes/pj_sapo/sapo_pj_A.png" id="1_ji1iq"]
 [ext_resource type="Script" uid="uid://crr4saurd3lmr" path="res://personajes/pj_mov.gd" id="1_rylv6"]
-[ext_resource type="Texture2D" uid="uid://c6pckk0xk5l7s" path="res://personajes/pj_sapo/sapo_pj_caminar_A.png" id="2_34x8y"]
-[ext_resource type="Texture2D" uid="uid://cls70meh1vtm5" path="res://personajes/pj_sapo/sapo_pj_B.png" id="2_h0hnq"]
-[ext_resource type="Texture2D" uid="uid://c46jgxbv7u2x0" path="res://personajes/pj_sapo/sapo_pj_caminar_B.png" id="3_x2ep2"]
-[ext_resource type="Texture2D" uid="uid://bqpkfdch5jql3" path="res://personajes/pj_sapo/sapo_pj_puÃ±etazo_A.png" id="5_6b7ge"]
-[ext_resource type="Texture2D" uid="uid://cvai7347uvb78" path="res://personajes/pj_sapo/sapo_pj_salto.png" id="6_6b7ge"]
-[ext_resource type="Texture2D" uid="uid://bcp8ot8hhrgfk" path="res://personajes/pj_sapo/sapo_pj_puÃ±etazo_B.png" id="6_rylv6"]
-[ext_resource type="Texture2D" uid="uid://c5nlvn0im6hhx" path="res://personajes/pj_sapo/sapo_pj_puÃ±etazo_C.png" id="7_cibkf"]
+[ext_resource type="Texture2D" uid="uid://cq2aio2fi4ju" path="res://personajes/pj_sapo/sapo_pj_caminar_A.png" id="2_34x8y"]
+[ext_resource type="Texture2D" uid="uid://cwo7ansgr17jg" path="res://personajes/pj_sapo/sapo_pj_B.png" id="2_h0hnq"]
+[ext_resource type="Texture2D" uid="uid://bfecvyu4fqeyq" path="res://personajes/pj_sapo/sapo_pj_caminar_B.png" id="3_x2ep2"]
+[ext_resource type="Texture2D" uid="uid://sr81gxtton4e" path="res://personajes/pj_sapo/sapo_pj_salto.png" id="6_6b7ge"]
+[ext_resource type="Texture2D" uid="uid://d1lay40hboq2n" path="res://personajes/pj_sapo/sapo_pj_punietazo_A.png" id="6_rylv6"]
+[ext_resource type="Texture2D" uid="uid://bcaxtdq47ad81" path="res://personajes/pj_sapo/sapo_pj_punietazo_B.png" id="7_cibkf"]
+[ext_resource type="Texture2D" uid="uid://dky4j0wr75gmp" path="res://personajes/pj_sapo/sapo_pj_punietazo_C.png" id="8_5xepf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6cpak"]
 radius = 45.9531
@@ -48,13 +48,13 @@ animations = [{
 "texture": ExtResource("1_ji1iq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_6b7ge")
-}, {
-"duration": 1.0,
 "texture": ExtResource("6_rylv6")
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_cibkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5xepf")
 }, {
 "duration": 1.0,
 "texture": ExtResource("1_ji1iq")
