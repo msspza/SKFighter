@@ -1,0 +1,96 @@
+[gd_scene load_steps=14 format=3 uid="uid://dn6spfn1esgic"]
+
+[ext_resource type="Texture2D" uid="uid://opifvbx788y7" path="res://personajes/pj_banquito/banquito_pj_A.png" id="1_f5oh5"]
+[ext_resource type="Script" uid="uid://crr4saurd3lmr" path="res://personajes/pj_mov.gd" id="1_jjeyy"]
+[ext_resource type="Texture2D" uid="uid://dkwntuy3gr8bw" path="res://personajes/pj_banquito/banquito_pj_caminar_A.png" id="1_qtmuv"]
+[ext_resource type="Texture2D" uid="uid://dud8ds6sokxxc" path="res://personajes/pj_banquito/banquito_pj_caminar_B.png" id="2_jjeyy"]
+[ext_resource type="Texture2D" uid="uid://dnoi8acw4ka0g" path="res://personajes/pj_banquito/banquito_pj_B.png" id="2_p2i64"]
+[ext_resource type="Texture2D" uid="uid://brdjyve8ie5iw" path="res://personajes/pj_banquito/banquito_pj_punietazo_A.png" id="5_qeqci"]
+[ext_resource type="Texture2D" uid="uid://v145w7anbwkh" path="res://personajes/pj_banquito/banquito_pj_punietazo_B.png" id="6_lkc8w"]
+[ext_resource type="Texture2D" uid="uid://b0s4g3fkdu2js" path="res://personajes/pj_banquito/banquito_pj_punietazo_C.png" id="7_8sq7j"]
+[ext_resource type="Texture2D" uid="uid://8pjmu3s3n5wi" path="res://personajes/pj_banquito/banquito_pj_salto.png" id="8_c2k7b"]
+[ext_resource type="Texture2D" uid="uid://4rk03dnvmj8" path="res://personajes/pj_banquito/banquito_pj_caida.png" id="9_d31hr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qtmuv"]
+radius = 29.0
+height = 94.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jjeyy"]
+radius = 25.0
+height = 92.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f0on0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qtmuv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jjeyy")
+}],
+"loop": false,
+"name": &"caminar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("1_f5oh5")
+}, {
+"duration": 2.0,
+"texture": ExtResource("2_p2i64")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f5oh5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qeqci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lkc8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8sq7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_f5oh5")
+}],
+"loop": false,
+"name": &"pegar",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("8_c2k7b")
+}, {
+"duration": 3.0,
+"texture": ExtResource("9_d31hr")
+}],
+"loop": false,
+"name": &"salto",
+"speed": 5.0
+}]
+
+[node name="BanquitoScene" type="CharacterBody2D"]
+script = ExtResource("1_jjeyy")
+
+[node name="HITBOX" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
+position = Vector2(-1, 1)
+shape = SubResource("CapsuleShape2D_qtmuv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("CapsuleShape2D_jjeyy")
+
+[node name="SKIN" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f0on0")
+
+[node name="TimerIdle" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerIdle" to="." method="_on_timer_idle_timeout"]
