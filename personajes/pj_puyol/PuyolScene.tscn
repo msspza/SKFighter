@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://btivaji7hjg6n"]
+
+[ext_resource type="Script" uid="uid://crr4saurd3lmr" path="res://personajes/pj_mov.gd" id="1_ion7r"]
+[ext_resource type="Texture2D" uid="uid://v6uxsupyopvd" path="res://personajes/pj_puyol/puyol_pj_caminar_A.png" id="2_xftdu"]
+[ext_resource type="Texture2D" uid="uid://xldwaowa1fv7" path="res://personajes/pj_puyol/puyol_pj_caminar_B.png" id="3_kg375"]
+[ext_resource type="Texture2D" uid="uid://ce0dvajk7wx6j" path="res://personajes/pj_puyol/puyol_pj_A.png" id="4_0vm0y"]
+[ext_resource type="Texture2D" uid="uid://v3bc0ctfv7wg" path="res://personajes/pj_puyol/puyol_pj_B.png" id="5_fj7rm"]
+[ext_resource type="Texture2D" uid="uid://dfbqq4rxra4qs" path="res://personajes/pj_puyol/puyol_pj_punietazo_A.png" id="6_wmsgk"]
+[ext_resource type="Texture2D" uid="uid://cvoum0e54p6nh" path="res://personajes/pj_puyol/puyol_pj_punietazo_B.png" id="7_a3b2v"]
+[ext_resource type="Texture2D" uid="uid://dvqgeixpdabrl" path="res://personajes/pj_puyol/puyol_pj_punietazo_C.png" id="8_rjq5o"]
+[ext_resource type="Texture2D" uid="uid://dssymgjyd33uj" path="res://personajes/pj_puyol/puyol_pj_salto.png" id="9_ppmep"]
+[ext_resource type="Texture2D" uid="uid://ecyp21bkgvtl" path="res://personajes/pj_puyol/puyol_pj_caida.png" id="10_xbw8s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ion7r"]
+radius = 28.0
+height = 90.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xftdu"]
+radius = 25.0
+height = 88.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rappn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xftdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kg375")
+}],
+"loop": false,
+"name": &"caminar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": ExtResource("4_0vm0y")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_fj7rm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0vm0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wmsgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_a3b2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rjq5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0vm0y")
+}],
+"loop": false,
+"name": &"pegar",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": ExtResource("9_ppmep")
+}, {
+"duration": 3.0,
+"texture": ExtResource("10_xbw8s")
+}],
+"loop": false,
+"name": &"salto",
+"speed": 5.0
+}]
+
+[node name="PuyolScene" type="CharacterBody2D"]
+script = ExtResource("1_ion7r")
+
+[node name="HITBOX" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_ion7r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 5)
+shape = SubResource("CapsuleShape2D_xftdu")
+
+[node name="SKIN" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rappn")
+animation = &"pegar"
+
+[node name="TimerIdle" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerIdle" to="." method="_on_timer_idle_timeout"]
