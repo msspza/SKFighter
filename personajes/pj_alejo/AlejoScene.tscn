@@ -80,6 +80,8 @@ collision_layer = 2
 script = ExtResource("1_23ttt")
 
 [node name="HITBOX" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
 position = Vector2(-1, 5)

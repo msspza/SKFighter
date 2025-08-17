@@ -1,4 +1,7 @@
+class_name Personaje
 extends CharacterBody2D
+
+signal attack(damage:int)
 
 @export var gravedad=475
 @export var velocidad=160
@@ -9,7 +12,7 @@ extends CharacterBody2D
 
 var timer_activo=false
 var default_animation=false
-
+	
 func _physics_process(delta: float) -> void:
 	if not Input.is_anything_pressed() and not default_animation:
 		if not timer_activo:
@@ -38,6 +41,7 @@ func _physics_process(delta: float) -> void:
 	var golpe_presionado=Input.is_action_just_pressed("pegar")
 	if golpe_presionado:
 		animated_skin.play("pegar")
+		attack.emit(10)
 		
 	move_and_slide()
 

@@ -42,7 +42,7 @@ pegar={
 
 2d_physics/layer_1="Suelos"
 2d_physics/layer_2="Personajes"
-2d_physics/layer_3="Areas"
+2d_physics/layer_3="Enemigos"
 
 [rendering]
 

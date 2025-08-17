@@ -76,9 +76,12 @@ animations = [{
 }]
 
 [node name="LucyScene" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_joy15")
 
 [node name="HITBOX" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
 position = Vector2(-2, 6)

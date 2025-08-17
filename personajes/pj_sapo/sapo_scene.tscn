@@ -82,6 +82,8 @@ script = ExtResource("1_rylv6")
 [node name="HITBOX" type="Area2D" parent="."]
 position = Vector2(-1.19209e-07, -5)
 scale = Vector2(0.609318, 0.696189)
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
 position = Vector2(-3.28236, 11.4911)
@@ -97,5 +99,7 @@ sprite_frames = SubResource("SpriteFrames_ly28b")
 animation = &"pegar"
 
 [node name="TimerIdle" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="timeout" from="TimerIdle" to="." method="_on_timer_idle_timeout"]
