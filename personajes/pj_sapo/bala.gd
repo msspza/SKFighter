@@ -20,7 +20,7 @@ func _on_body_contact_bullet(body: Node2D) -> void:
 		velocidad_bala=0
 		animated_sprite.play("destruccion")
 
-
+# Método que se va a ejecutar al recibir la señal de que la animacion de la bala denominada 'destruccion' finalice
 func _on_skin_animation_finished() -> void:
 	if animated_sprite.animation == "destruccion":
 		queue_free()
