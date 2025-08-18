@@ -25,9 +25,16 @@ shape = SubResource("RectangleShape2D_8a8pi")
 [node name="SapoScene" parent="." instance=ExtResource("2_8a8pi")]
 position = Vector2(-137, -55)
 
+[node name="SpawnSkillA" type="Marker2D" parent="SapoScene"]
+position = Vector2(36, 11)
+
+[node name="CooldownQ" type="Timer" parent="SapoScene"]
+wait_time = 1.5
+
 [node name="SparringBody" parent="." instance=ExtResource("3_65205")]
 position = Vector2(100, -53)
 rotation = 3.14159
 scale = Vector2(1.24, -1.28)
 
-[connection signal="attack" from="SapoScene" to="SparringBody" method="_on_attack_receibed"]
+[connection signal="basic_attack" from="SapoScene" to="SparringBody" method="_on_basic_attack_received"]
+[connection signal="timeout" from="SapoScene/CooldownQ" to="SapoScene" method="_on_cooldown_q_timeout"]

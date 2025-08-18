@@ -1,15 +1,23 @@
-[gd_scene load_steps=39 format=3 uid="uid://cjdv42l7mhmjt"]
+[gd_scene load_steps=47 format=3 uid="uid://cjdv42l7mhmjt"]
 
 [ext_resource type="Texture2D" uid="uid://8fnnkom6xjq5" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/1-Idle/1.png" id="1_62f76"]
 [ext_resource type="Script" uid="uid://cm2j1og12xl86" path="res://test/sparring_body.gd" id="1_beqdv"]
+[ext_resource type="Texture2D" uid="uid://dkstu4br3fjuu" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/8-Hit/1.png" id="2_7dghr"]
 [ext_resource type="Texture2D" uid="uid://budcsrbip51hn" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/1-Idle/2.png" id="2_beqdv"]
+[ext_resource type="Texture2D" uid="uid://dv328y3015bfk" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/8-Hit/2.png" id="3_2ipn0"]
 [ext_resource type="Texture2D" uid="uid://dbivrog5l7ahl" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/1-Idle/3.png" id="3_m3u7r"]
+[ext_resource type="Texture2D" uid="uid://csvm6668wn7au" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/8-Hit/3.png" id="4_id00h"]
 [ext_resource type="Texture2D" uid="uid://cprjth0xm4blk" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/1-Idle/4.png" id="4_qcgth"]
+[ext_resource type="Texture2D" uid="uid://bq6njqfbynhe8" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/8-Hit/4.png" id="5_8joqe"]
 [ext_resource type="Texture2D" uid="uid://bhal15grqntln" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/1-Idle/5.png" id="5_grqvp"]
+[ext_resource type="Texture2D" uid="uid://ckbxcp2esw5h1" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/8-Hit/5.png" id="6_adaj1"]
 [ext_resource type="Texture2D" uid="uid://dj7kphl5d1d0" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/1-Idle/6.png" id="6_koaoi"]
+[ext_resource type="Texture2D" uid="uid://dc25fdh2420pg" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/8-Hit/6.png" id="7_65hxi"]
 [ext_resource type="Texture2D" uid="uid://3kp3bl7vysjx" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/1-Idle/7.png" id="7_o3glp"]
+[ext_resource type="Texture2D" uid="uid://3oyar5043g4r" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/8-Hit/7.png" id="8_eq2yl"]
 [ext_resource type="Texture2D" uid="uid://cc2y8bi7fdu4t" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/1-Idle/8.png" id="8_khi0n"]
 [ext_resource type="Texture2D" uid="uid://c845kowbtuw16" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/1-Idle/9.png" id="9_cuu1g"]
+[ext_resource type="Texture2D" uid="uid://b57lqsye8m1qv" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/8-Hit/8.png" id="9_qyv5e"]
 [ext_resource type="Texture2D" uid="uid://dlwcbcv6nduwn" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/1-Idle/10.png" id="10_7dghr"]
 [ext_resource type="Texture2D" uid="uid://cgp1s2c8a4bcy" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/1-Idle/11.png" id="11_2ipn0"]
 [ext_resource type="Texture2D" uid="uid://m1snq41n1aue" path="res://assets/Pirate Bomb/Sprites/2-Enemy-Bald Pirate/1-Idle/12.png" id="12_id00h"]
@@ -46,6 +54,38 @@ height = 66.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j1bhf"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7dghr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2ipn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_id00h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8joqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_adaj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_65hxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_eq2yl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qyv5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_62f76")
+}],
+"loop": false,
+"name": &"ataque_recibido",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_62f76")
@@ -160,7 +200,7 @@ script = ExtResource("1_beqdv")
 
 [node name="HITBOX" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HITBOX"]
 position = Vector2(-3, 3)
@@ -172,8 +212,13 @@ shape = SubResource("CapsuleShape2D_beqdv")
 
 [node name="SKIN" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_j1bhf")
+animation = &"ataque_recibido"
 autoplay = "default"
-frame_progress = 0.514178
 
-[connection signal="body_entered" from="HITBOX" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_exited" from="HITBOX" to="." method="_on_hitbox_body_exited"]
+[node name="TimerIdle" type="Timer" parent="."]
+wait_time = 1.25
+one_shot = true
+
+[connection signal="area_entered" from="HITBOX" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_exited" from="HITBOX" to="." method="_on_hitbox_area_exited"]
+[connection signal="timeout" from="TimerIdle" to="." method="_on_timer_idle_timeout"]

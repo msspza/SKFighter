@@ -96,10 +96,8 @@ shape = SubResource("CapsuleShape2D_ji1iq")
 
 [node name="SKIN" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ly28b")
-animation = &"pegar"
+animation = &"caminar"
 
 [node name="TimerIdle" type="Timer" parent="."]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="timeout" from="TimerIdle" to="." method="_on_timer_idle_timeout"]
